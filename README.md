@@ -13,7 +13,7 @@
 
 This project is a real-time transaction processing pipeline that reads transaction data from CSV files, streams it through Kafka, processes it with Spark Streaming, stores the cleaned output in Hadoop HDFS, and exposes the final data for reporting in Power BI.
 
-![System Architecture](images/system_architecture.png)
+![System Architecture](images/overview.png)
 
 ## 🎥 Demo Video
 
@@ -27,6 +27,25 @@ This project is a real-time transaction processing pipeline that reads transacti
 4. The stream is cleaned and transformed before being written to Hadoop HDFS.
 5. Airflow automates the CSV aggregation step and prepares the final output file.
 6. Power BI connects to the aggregated data for dashboards and reporting.
+
+## 🗂️ Project Structure
+
+```text
+Real-time_Transaction_Processing_System/
+├── Scripts/
+│   ├── producer.py            # Publishes transaction records to Kafka
+│   ├── spark_streaming.py     # Consumes and transforms Kafka messages
+│   ├── combine_csv.py         # Merges processed CSV outputs
+│   └── dag.py                 # Airflow DAG for orchestration
+├── images/
+│   ├── system_architecture.png
+│   ├── producer.png
+│   ├── hadoop.png
+│   ├── powerbi.png
+│   └── airflow.png
+├── link video.txt             # Demo video link
+└── README.md
+```
 
 ## 🧩 Pipeline Components
 
@@ -66,22 +85,3 @@ Power BI connects to the final aggregated CSV file and visualizes transaction tr
 Airflow automates the CSV merge step, creates the final consolidated file, and keeps the reporting dataset updated on a regular schedule.
 
 ![Airflow](images/airflow.png)
-
-## 🗂️ Project Structure
-
-```text
-Real-time_Transaction_Processing_System/
-├── Scripts/
-│   ├── producer.py            # Publishes transaction records to Kafka
-│   ├── spark_streaming.py     # Consumes and transforms Kafka messages
-│   ├── combine_csv.py         # Merges processed CSV outputs
-│   └── dag.py                 # Airflow DAG for orchestration
-├── images/
-│   ├── system_architecture.png
-│   ├── producer.png
-│   ├── hadoop.png
-│   ├── powerbi.png
-│   └── airflow.png
-├── link video.txt             # Demo video link
-└── README.md
-```
